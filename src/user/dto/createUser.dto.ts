@@ -1,5 +1,4 @@
-import { IsNotEmpty, IsEmail, MinLength, IsOptional } from 'class-validator';
-import { ApiHideProperty } from '@nestjs/swagger';
+import { IsNotEmpty, IsArray } from 'class-validator';
 import { AutoMap } from '@nartc/automapper';
 
 export class CreateUserDto {
@@ -7,22 +6,8 @@ export class CreateUserDto {
   @AutoMap()
   name: string;
 
-  @IsOptional()
-  @IsEmail()
-  @AutoMap()
-  email: string;
-
-  @IsOptional()
-  @AutoMap()
-  phone: string;
-
-  @IsOptional()
-  @ApiHideProperty()
-  @AutoMap()
-  emailConfirm: boolean;
-
   @IsNotEmpty()
-  @MinLength(5)
+  @IsArray()
   @AutoMap()
-  password: string;
+  test: number[];
 }

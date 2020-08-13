@@ -8,5 +8,5 @@ export class User {
   name: string;
 
   @AutoMap()
-  email: string;
+  test: number[];
 }

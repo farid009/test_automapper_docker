@@ -5,7 +5,10 @@ import { AppController } from './app.controller';
 import { UserModule } from './user/user.module';
 
 @Module({
-  imports: [AutomapperModule.withMapper(), UserModule],
+  imports: [
+    AutomapperModule.withMapper({ skipUnmappedAssertion: true }),
+    UserModule,
+  ],
   controllers: [AppController],
   providers: appProviders,
 })
